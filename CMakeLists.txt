@@ -1,18 +1,28 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-project(Snake VERSION 1.0.0)
+project(Snake)
 
 
 add_subdirectory(Snake_logic)
 
 
 
+
+set(SOURCES main.cpp)
+
+
 add_executable(Snake 
-main.cpp)
+${SOURCES})
 
 
 
 target_link_libraries(Snake PUBLIC snake_logic)
+
+    
+    
+
+    
+
 
 
 

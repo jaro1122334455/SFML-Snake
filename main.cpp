@@ -44,7 +44,7 @@ int main()
     }
 
     sf::Font f1;
-    f1.loadFromFile("Arimo Bold for Powerline.ttf");
+    f1.loadFromFile("../fonts/Arimo_Bold.ttf");
 
 
 
