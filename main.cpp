@@ -23,7 +23,7 @@ using namespace game_setup;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(W, H), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(W, H), "SFML SNAKE");
     // window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(frameRate);
     /*sf::RectangleShape shape({50, 50});
@@ -119,7 +119,11 @@ int main()
         }
 
 
+        // window.clear(sf::Color(242, 193, 78));
+
         window.clear();
+
+
         for(auto& block : blocks)
         {
             window.draw(block);

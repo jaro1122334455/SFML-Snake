@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "game_setup.h"
 
 class Block : public sf::Drawable
 {   

@@ -4,13 +4,13 @@
 
 Food::Food(float x, float y)
 {
-    getShape().setFillColor(sf::Color::Red);
+    getShape().setFillColor(game_setup::color_4);
     // setBlockX(x);
     // setBlockY(y);
     getShape().setPosition(x , y);
     getShape().setSize(sf::Vector2f{blockSize, blockSize});
     getShape().setOutlineThickness(-1);
-    getShape().setOutlineColor(sf::Color::White);
+    getShape().setOutlineColor(game_setup::color_5);
 }
 
 // bool Food::isColidingWithSnake(Snake S)

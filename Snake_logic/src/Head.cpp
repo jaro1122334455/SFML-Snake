@@ -17,10 +17,10 @@
 
 Head::Head(float x, float y, float width, float height) : Block(x, y, width, height)
 {
-    getShape().setFillColor(sf::Color::Blue);
+    getShape().setFillColor(game_setup::color_1);
 
     getShape().setOutlineThickness(-1);
-    getShape().setOutlineColor(sf::Color::Black);
+    getShape().setOutlineColor(game_setup::color_2);
     // position.x = x;
     // position.y = y;
 
