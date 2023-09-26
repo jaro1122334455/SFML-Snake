@@ -1,12 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "game_setup.h"
-// #include "../Food_dir/include/Food/Food.h"
 #include "Head.h"
 #include "Food.h"
-// #include "Head_dir/Head.h"
-// #include "Head.h"
-// #include "Food.h"
 #include <vector>
 #include <list>
 
@@ -27,9 +23,6 @@ class Snake : public Head
 
     std::vector<Head> tail_;
     // std::list<Head> tail_;
-
-    
-
 
     std::vector<Head*> elements;
     std::list<Head> snakeElements;

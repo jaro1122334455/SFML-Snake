@@ -21,77 +21,45 @@ Head::Head(float x, float y, float width, float height) : Block(x, y, width, hei
 
     getShape().setOutlineThickness(-1);
     getShape().setOutlineColor(game_setup::color_2);
-    // position.x = x;
-    // position.y = y;
 
-    // getShape().setPosition(position);
-
-    // this->elements.push_back(this);
 
 };
 
-// void Head::draw(sf::RenderTarget& target, sf::RenderStates state) const                         //target to przesłane okno do wyświetlania (tak jak window.draw())
-// {
-//     std::cout << "Draw head" << std::endl;
 
-
-//     target.draw(this->shape, state);
-
-    
-//     // for(auto& element : this->elements)
-//     // {
-//     //     target.draw(element, state);
-//     // }
-// }
-
-
-void Head::update()                     //zrobić tu zwracanie vektora zamiast void i wtedy wysyłać ten vector jako argument w klasie snake update
+void Head::update()
 {
-    // std::cout << "Head update" << std::endl;
 
-
-
-    // deltaTime = clk.restart().asMilliseconds();
-    // totalTime += deltaTime;
-
-    // deltaTime = clk.restart().asMilliseconds();
 
     getShape().move(this->moveVector);
 
-    // std::cout << "deltaTime: " << deltaTime << std::endl;
-    // std::cout << "moveSpeed: " << moveSpeed << std::endl;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && moveVector.x > (-blockSize))
+    {
+        moveVector.y = 0;
+        moveVector.x = blockSize;
 
-    // if(totalTime >= 1.0f / moveSpeed)
-    // {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && moveVector.x > (-blockSize))
-        {
-            moveVector.y = 0;
-            moveVector.x = blockSize;
+    }
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && moveVector.x < (blockSize))
+    {
+        moveVector.y = 0;
+         moveVector.x = -blockSize;
 
-        }
+    }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && moveVector.x < (blockSize))
-        {
-            moveVector.y = 0;
-            moveVector.x = -blockSize;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && moveVector.y < (blockSize))
+    {
+        moveVector.y = -blockSize;
+        moveVector.x = 0;
 
-        }
+    }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && moveVector.y < (blockSize))
-        {
-            moveVector.y = -blockSize;
-            moveVector.x = 0;
-
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && moveVector.y > (-blockSize))
-        {   
-            moveVector.y = blockSize;
-            moveVector.x = 0;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && moveVector.y > (-blockSize))
+    {   
+        moveVector.y = blockSize;
+        moveVector.x = 0;
 
 
-        }
+    }
 
 
 }
@@ -101,7 +69,6 @@ void Head::checkPosition()
     float x = 0;
     float y = 0;
 
-    // std::cout << getShape().getPosition().x << " " << getShape().getPosition().y << std::endl;
 
     if(getShape().getPosition().x > W)                         //prawa krawędź
     {

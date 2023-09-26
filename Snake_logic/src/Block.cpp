@@ -10,8 +10,6 @@ Block::Block(float x, float y, float width, float height)
 
     shape.setPosition(position);
     shape.setSize(sf::Vector2f{width, height});
-    //shape.setOrigin(width/2.f, height/2.f);
-    // shape.setFillColor(sf::Color::Green);
     shape.setFillColor(game_setup::color_3);
     shape.setOutlineThickness(0);
     shape.setOutlineColor(sf::Color::White);

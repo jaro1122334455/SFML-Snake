@@ -13,25 +13,13 @@
 
 using namespace game_setup;
 
-// const int W = 1600;
-// const int H = 600;
-// const int blockSize = 10;
-// const int frame = 10;
-
-
 
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(W, H), "SFML SNAKE");
-    // window.setVerticalSyncEnabled(true);
     window.setFramerateLimit(frameRate);
-    /*sf::RectangleShape shape({50, 50});
-    shape.setOrigin(25, 25);
-    shape.setOutlineThickness(5);
-    shape.setOutlineColor(sf::Color::White);
-    shape.setPosition(H/2, W/2);
-    shape.setFillColor(sf::Color::Green);*/
+
 
     std::vector<Block> blocks;
 
@@ -58,26 +46,6 @@ int main()
     score.setPosition({W/2, (H/2) * 0.25 });
 
 
-
-    //std::list<Head> Snake;
-
-    // int total = 1;
-    // Head tail[32];
-
-    // std::list<Head> snakeElementss;
-
-
-    // Head head_1(W/2, H/2, blockSize, blockSize);
-    // Head head_2(W/2 - blockSize, H/2, blockSize, blockSize);
-
-    // snakeElementss.push_front(head_1);
-    // snakeElementss.push_front(head_2);
-    // Head head2(W/2, H/2, blockSize, blockSize);
-
-
-    //Snake.push_back(head);
-    //Snake.push_back(head2);
-
     Snake snake(W/2, H/2, blockSize, blockSize);
 
     Head H_1(W/2, H/2, blockSize, blockSize);
@@ -89,25 +57,14 @@ int main()
 
     int possibleValues = (W - 0) / blockSize;
 
-    // Food f1(50, 50, blockSize, blockSize);
-
-    Food f2(50, 50);
 
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     int randomX = (std::rand() % possibleValues) * blockSize;
-    // int randomX = (std::rand() % ((501 - 0) / blockSize)) * blockSize + 0;
     int randomY = (std::rand() % possibleValues) * blockSize;
-    // int randomY = (std::rand() % possibleValues) * blockSize;
-
 
 
     Food* F = new Food(randomX, randomY);
-
-
-
-
-    int value = 150;
 
     while (window.isOpen())
     {
@@ -119,8 +76,6 @@ int main()
         }
 
 
-        // window.clear(sf::Color(242, 193, 78));
-
         window.clear();
 
 
@@ -129,96 +84,46 @@ int main()
             window.draw(block);
         }
 
-        /*for(auto& element : Snake)
-        {
-            window.draw(element);
-            element.update();
-
-        }*/
-
-
-
 
         snake.update();
 
         H_1.update();
         
-
-        // std::cout << snake.isColidingWithItself() << std::endl;
-
-        if(snake.isColidingWithItself())
+        // Tymczasowa funkcja do sprawdzania kolizji węża z samym sobą
+        // wyświetla biały kwadrat na chwilę
+        if(snake.isColidingWithItself())     
         {
-            // sf::RenderWindow window_2(sf::VideoMode(W / 2, H / 2), "SFML test!");
             sf::Text text;
             sf::Font font;
 
             sf::RectangleShape shape;
 
-            // shape.setPosition(W/2, H/2);
             shape.setSize(sf::Vector2f{W/2, H/2});
 
             sf::Time t1 = sf::seconds(10);
 
-            
-            
-
-
-
-            
-
-            // while (window_2.isOpen()) 
-            // {
-                
-            //     sf::Event event2;
-            //     while (window_2.pollEvent(event2)) 
-            //     {
-            //         if (event2.type == sf::Event::Closed) 
-            //         {
-            //             window_2.close();
-            //         }
-            //     }
-
-            // }
-
-            // text.setFont(font);
-            // text.setString("Przegrana");
-            // text.setCharacterSize(50);
-            // text.setFillColor(sf::Color::White);
-
-            
             window.draw(text);
             window.draw(shape);
             window.display();
 
-            // sf::sleep(t1);
-
-            // window_2.draw(text);
-            // window_2.clear();
-            // window_2.display();
         }
 
-        // std::cout << snake.isColidingWithFood(*F) << std::endl;
 
-
-        if(snake.isColidingWithFood(*F))
-        {   
-            scoreInt++;
+        // Funkcja do sprawdzania kolizji z jedzeniem
+        if(snake.isColidingWithFood(*F))                                                         // Jeśli wąż koliduje z jedzeniem dodaj punkt wygeneruj nowe wsp 
+        {                                                                                        // jedzenia i zwiększ długość węża (linijka 150)
+            scoreInt++; 
             score.setString("SCORE: " + std::to_string(scoreInt));
 
             randomX = (std::rand() % possibleValues) * blockSize;
             randomY = (std::rand() % possibleValues) * blockSize;
 
-            // randomX = 475;
-            // randomY = 475;
 
             sf::Vector2f foodNewPosition = {float(randomX), float(randomY)};
 
-            // std::cout << foodNewPosition.x << " " << foodNewPosition.y << std::endl;
 
-            if(snake.isFoodColidingWithSnake(foodNewPosition))
-            {
-                
-                // std::cout << "Blad" << std::endl;
+            if(snake.isFoodColidingWithSnake(foodNewPosition))                                   // Jeśli nowe współrzędne jedzenia wygenerują się na ciele węża
+            {                                                                                    // to generuj nowe do momentu aż tak nie będzie
 
                 do
                 {
@@ -232,57 +137,29 @@ int main()
 
                     std::cout << "Nowa pozycja" << std::endl;
                     std::cout << "N:" << randomX << " " << randomY << std::endl;
-                    // randomX = 25;
-                    // randomY = 25;
-
 
                 }
                 while(!snake.isFoodColidingWithSnake(foodNewPosition));
 
 
             }
-            else
-            {
+            else                                                                               // Jeśli współrzędne jedzenia nie kolidują z wężem zmień wartości w 
+            {                                                                                  // dotychczasowej pozycji
                 (*F) = Food(randomX, randomY);
-                // std::cout << "OK" << std::endl;
             }
-
-
-            // (*F) = Food(randomX, randomY);
-
 
             snake.grow();
         }
-
-        
+    
 
         window.draw(snake);
         window.draw(score);
         snake.checkPosition();
-        // H_1.checkPosition();
-        // window.draw(H_1);
 
-        // f1.update();
-
-        // window.draw(f1);
-        // window.draw(f2);
         window.draw(*F);
 
-        // for(auto& element : snakeElementss)
-        // {
-        //     window.draw(element.shape);
-        //     element.update();
-        // }
-
-        
-        // window.draw(head_1);
-        // head_1.update();
-        // window.draw(head2);
-        // head2.update();
-
-
         window.display();
-        // window_2.display();
+
     }
 
     
