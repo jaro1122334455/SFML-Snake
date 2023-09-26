@@ -18,6 +18,7 @@ You also need to install SFML.
 sudo dnf install SFML
 ```
 
+
 Debian:
 ```bash
 sudo apt get install gcc
@@ -25,6 +26,7 @@ sudo apt get install cmake
 sudo apt-get install libsfml-dev
 ```
 
+In file CMakeLists.txt in main folder you need to change the path to SFML.
 
 ## Build and run project
 
