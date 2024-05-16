@@ -17,25 +17,27 @@ ${SOURCES})
 
 
 target_link_libraries(Snake PUBLIC snake_logic)
-
-    
-    
-
-    
+target_link_libraries(Snake PRIVATE sfml-graphics)
 
 
+# target_include_directories(Snake PRIVATE /home/jarek/SFML-2.6.0/include)
+
+# target_link_libraries(Snake PRIVATE
+#     /home/jarek/SFML-2.6.0/lib/libsfml-graphics.so
+#     /home/jarek/SFML-2.6.0/lib/libsfml-window.so
+#     /home/jarek/SFML-2.6.0/lib/libsfml-system.so
+# )
 
 
 
+# target_include_directories(Snake PRIVATE SFML-2.6.0/include)
 
 
-target_include_directories(Snake PRIVATE /home/jarek/SFML-2.6.0/include)
-
-target_link_libraries(Snake PRIVATE
-    /home/jarek/SFML-2.6.0/lib/libsfml-graphics.so
-    /home/jarek/SFML-2.6.0/lib/libsfml-window.so
-    /home/jarek/SFML-2.6.0/lib/libsfml-system.so
-)
+# target_link_libraries(Snake PRIVATE
+#     SFML-2.6.0/lib/libsfml-graphics.so
+#     SFML-2.6.0/lib/libsfml-window.so
+#     SFML-2.6.0/lib/libsfml-system.so
+# )
 
 
 
