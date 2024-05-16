@@ -1,0 +1,6 @@
+# Kompilowane pliki obiektowe
+*.o
+*.obj
+
+# Katalogi
+build/

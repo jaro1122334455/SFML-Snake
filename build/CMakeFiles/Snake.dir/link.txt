@@ -1,1 +1,0 @@
-/usr/lib64/ccache/c++ -rdynamic CMakeFiles/Snake.dir/main.cpp.o -o Snake  -Wl,-rpath,/home/jarek/SFML-2.6.0/lib Snake_logic/libsnake_logic.a /home/jarek/SFML-2.6.0/lib/libsfml-graphics.so /home/jarek/SFML-2.6.0/lib/libsfml-window.so /home/jarek/SFML-2.6.0/lib/libsfml-system.so 

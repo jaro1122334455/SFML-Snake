@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsnake_logic.a CMakeFiles/snake_logic.dir/src/Block.cpp.o CMakeFiles/snake_logic.dir/src/Food.cpp.o CMakeFiles/snake_logic.dir/src/Head.cpp.o CMakeFiles/snake_logic.dir/src/Snake.cpp.o
-/usr/bin/ranlib libsnake_logic.a
