@@ -1,0 +1,6 @@
+/home/jarek/git_test/SFML-Snake/build/CMakeFiles/Snake.dir
+/home/jarek/git_test/SFML-Snake/build/CMakeFiles/edit_cache.dir
+/home/jarek/git_test/SFML-Snake/build/CMakeFiles/rebuild_cache.dir
+/home/jarek/git_test/SFML-Snake/build/Snake_logic/CMakeFiles/snake_logic.dir
+/home/jarek/git_test/SFML-Snake/build/Snake_logic/CMakeFiles/edit_cache.dir
+/home/jarek/git_test/SFML-Snake/build/Snake_logic/CMakeFiles/rebuild_cache.dir

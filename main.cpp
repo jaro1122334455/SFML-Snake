@@ -20,6 +20,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(W, H), "SFML SNAKE");
     window.setFramerateLimit(frameRate);
 
+    // test workflow
+
 
     std::vector<Block> blocks;
 
