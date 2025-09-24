@@ -17,8 +17,9 @@ using namespace game_setup;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(W, H), "SFML SNAKE");
+    sf::RenderWindow window(sf::VideoMode({W, H}, 24), "SFML SNAKE");
     window.setFramerateLimit(frameRate);
+    window.setVerticalSyncEnabled(true);
 
     // test workflow
 
@@ -34,18 +35,18 @@ int main()
     }
 
     sf::Font f1;
-    f1.loadFromFile("../fonts/Arimo_Bold.ttf");
+    f1.openFromFile("../fonts/Arimo_Bold.ttf");
 
 
 
     int scoreInt = 0;
-    sf::Text score;
-    score.setString("SCORE: " + std::to_string(scoreInt));
-    score.setFillColor(sf::Color::White);
-    score.setFont(f1);
-    score.setCharacterSize(40);
-    score.setOrigin(score.getGlobalBounds().width / 2, score.getGlobalBounds().height / 2);
-    score.setPosition({W/2, (H/2) * 0.25 });
+    // sf::Text score;
+    // score.setString("SCORE: " + std::to_string(scoreInt));
+    // score.setFillColor(sf::Color::White);
+    // score.setFont(f1);
+    // score.setCharacterSize(40);
+    // score.setOrigin(score.getGlobalBounds().width / 2, score.getGlobalBounds().height / 2);
+    // score.setPosition({W/2, (H/2) * 0.25 });
 
 
     Snake snake(W/2, H/2, blockSize, blockSize);
@@ -70,10 +71,14 @@ int main()
 
     while (window.isOpen())
     {
-        sf::Event event;
-        while (window.pollEvent(event))
+        // sf::Event event;
+        // while (window.pollEvent(event))
+        while (const std::optional event = window.pollEvent())
         {
-            if (event.type == sf::Event::Closed)
+            // if (event.type == sf::Event::Closed)
+            //     window.close();
+                        // "close requested" event: we close the window
+            if (event->is<sf::Event::Closed>())
                 window.close();
         }
 
@@ -95,7 +100,7 @@ int main()
         // wyświetla biały kwadrat na chwilę
         if(snake.isColidingWithItself())     
         {
-            sf::Text text;
+            // sf::Text text;
             sf::Font font;
 
             sf::RectangleShape shape;
@@ -104,7 +109,7 @@ int main()
 
             sf::Time t1 = sf::seconds(10);
 
-            window.draw(text);
+            // window.draw(text);
             window.draw(shape);
             window.display();
 
@@ -115,7 +120,7 @@ int main()
         if(snake.isColidingWithFood(*F))                                                         // Jeśli wąż koliduje z jedzeniem dodaj punkt wygeneruj nowe wsp 
         {                                                                                        // jedzenia i zwiększ długość węża (linijka 150)
             scoreInt++; 
-            score.setString("SCORE: " + std::to_string(scoreInt));
+            // score.setString("SCORE: " + std::to_string(scoreInt));
 
             randomX = (std::rand() % possibleValues) * blockSize;
             randomY = (std::rand() % possibleValues) * blockSize;
@@ -155,7 +160,7 @@ int main()
     
 
         window.draw(snake);
-        window.draw(score);
+        // window.draw(score);
         snake.checkPosition();
 
         window.draw(*F);

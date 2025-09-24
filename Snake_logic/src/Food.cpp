@@ -4,7 +4,7 @@
 Food::Food(float x, float y)
 {
     getShape().setFillColor(game_setup::color_4);
-    getShape().setPosition(x , y);
+    getShape().setPosition(sf::Vector2f{x, y});
     getShape().setSize(sf::Vector2f{blockSize, blockSize});
     getShape().setOutlineThickness(-1);
     getShape().setOutlineColor(game_setup::color_5);
