@@ -32,28 +32,28 @@ void Head::update()
 
     getShape().move(this->moveVector);
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && moveVector.x > (-blockSize))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && moveVector.x > (-blockSize))
     {
         moveVector.y = 0;
         moveVector.x = blockSize;
 
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && moveVector.x < (blockSize))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && moveVector.x < (blockSize))
     {
         moveVector.y = 0;
          moveVector.x = -blockSize;
 
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && moveVector.y < (blockSize))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && moveVector.y < (blockSize))
     {
         moveVector.y = -blockSize;
         moveVector.x = 0;
 
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && moveVector.y > (-blockSize))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && moveVector.y > (-blockSize))
     {   
         moveVector.y = blockSize;
         moveVector.x = 0;

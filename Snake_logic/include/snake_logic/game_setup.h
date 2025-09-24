@@ -4,10 +4,10 @@
 
 namespace game_setup
 {
-    const float W = 800.0f;
-    const float H = 800.0f;
+    const int W = 800.0;
+    const int H = 800.0;
     const float blockSize = 25.0f;
-    const float frameRate = 10.0f;
+    const float frameRate = 24.0f;
 
 
     const sf::Color color_1(95, 173, 86);                 // kolor węża
